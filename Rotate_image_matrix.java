@@ -9,10 +9,10 @@ public class Main {
                 matrix[i][j] = sc.nextInt();
             }
         }
-        for (int j = 0; j < n; j++) {
-            for (int i = n - 1; i >= 0; i--) {
-                System.out.print(matrix[i][j]);
-                if (i != 0) {
+        for (int i = 0; i < n; i++) {
+            for (int j = n - 1; j >= 0; j--) {
+                System.out.print(matrix[j][i]);
+                if (j != 0) {
                     System.out.print(" ");
                 }
             }
