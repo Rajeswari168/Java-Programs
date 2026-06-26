@@ -1,27 +1,32 @@
 import java.util.*;
-public class Longest_Common_Prefix {
-    public static String longestCommonPrefix(String[] strs) {
-        if (strs == null || strs.length == 0) return "";
-        String prefix = strs[0];
-        for (int i = 1; i < strs.length; i++) {
-            while (strs[i].indexOf(prefix) != 0) {
-                prefix = prefix.substring(0, prefix.length() - 1);
-                if (prefix.isEmpty()) {
-                    return "";
+public class Main{
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        sc.nextLine();
+        String[] str=new String[n];
+        for(int i=0;i<n;i++){
+            str[i]=sc.next();
+        }
+        String prefix="";
+        for(int i=0;i<str[0].length();i++){
+            char ch=str[0].charAt(i);
+            for(int j=1;j<n;j++){
+                if(i>=str[j].length() || str[j].charAt(i) != ch){
+                    if(prefix.length()==0){
+                        System.out.print("-1");
+                    }else{
+                        System.out.print(prefix);
+                    }
+                    return;
                 }
             }
+            prefix=prefix+ch;
         }
-        return prefix;
-    }
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        sc.nextLine();
-        String[] strs = new String[n];
-        for (int i = 0; i < n; i++) {
-            strs[i] = sc.nextLine();
+        if(prefix.length()==0){
+            System.out.print("-1");
+        }else{
+            System.out.print(prefix);
         }
-        String result = longestCommonPrefix(strs);
-        System.out.println(result);
     }
 }
