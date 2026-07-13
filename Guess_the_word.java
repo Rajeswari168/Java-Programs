@@ -12,6 +12,10 @@ public class Guess_the_word {
                 ans=str;
             }
         }
-        System.out.println(ans);
+        if(max==0){
+            System.out.print("Better luck next time");
+        }else{
+            System.out.print(ans);
+        }
     }
 }
