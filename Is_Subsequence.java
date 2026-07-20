@@ -1,16 +1,17 @@
 import java.util.*;
-public class Main{
+public class subsequence {
     public static void main(String[] args){
         Scanner sc=new Scanner(System.in);
         String s=sc.next();
         String t=sc.next();
-        int i=0,j=0;
-        while(i<s.length() && j<t.length()){
-            if(s.charAt(i)==t.charAt(j)){
-                i++;
+        for(int i=0;i<s.length();i++){
+            for(int j=i+1;j<t.length()-1;j++){
+                if(s.charAt(i)==t.charAt(j)){
+                    System.out.print("true");
+                    return;
+                }
             }
-            j++;
         }
-        System.out.print(i==s.length());
+        System.out.print("false");
     }
 }
